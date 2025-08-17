@@ -10,10 +10,10 @@ import pandas as pd
 app = Flask(__name__)
 
 # Carregar o modelo mais recente
-def dsa_carrega_modelo():
+def carrega_modelo():
     
     # Define o caminho do modelo mais recente
-    model_path = 'modelos/modelo_dsa_mais_recente.pkl'
+    model_path = 'modelos/modelo_mais_recente.pkl'
     
     # Carrega o modelo a partir do caminho especificado
     modelo = joblib.load(model_path)
@@ -22,7 +22,7 @@ def dsa_carrega_modelo():
     return modelo
 
 # Carrega o modelo mais recente
-modelo_dsa = dsa_carrega_modelo()
+modelo_dsa = carrega_modelo()
 
 @app.route('/predict', methods = ['POST'])
 def predict():

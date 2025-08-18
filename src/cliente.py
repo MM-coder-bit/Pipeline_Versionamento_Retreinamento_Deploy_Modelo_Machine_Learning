@@ -10,7 +10,7 @@ import pandas as pd
 import json
 
 # Função para fazer uma predição
-def dsa_faz_previsao(data):
+def faz_previsao(data):
     
     # Define a URL da API de deploy do modelo
     url = "http://localhost:5100/predict"
@@ -19,10 +19,10 @@ def dsa_faz_previsao(data):
     headers = {"Content-Type": "application/json"}
     
     # Converte os dados do DataFrame para o formato JSON
-    dsa_json = data.to_json(orient = "records")
+    json = data.to_json(orient = "records")
     
     # Faz uma requisição POST para o serviço da API
-    response = requests.post(url, headers = headers, data = dsa_json)
+    response = requests.post(url, headers = headers, data = json)
     
     # Verifica se a requisição foi bem-sucedida
     if response.status_code == 200:
@@ -51,7 +51,7 @@ if __name__ == "__main__":
     })
     
     # Faz a previsão usando os dados de exemplo
-    predictions = dsa_faz_previsao(data)
+    predictions = faz_previsao(data)
     
     # Imprime a previsão
     print(f"\nPrevisão do Modelo: {predictions}\n")

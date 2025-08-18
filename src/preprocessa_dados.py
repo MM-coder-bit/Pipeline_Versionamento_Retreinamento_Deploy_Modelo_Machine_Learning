@@ -10,7 +10,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split  
 
 # Função para gerar dados
-def dsa_gera_dados():
+def gera_dados():
 
     # Define a semente para o gerador de números aleatórios
     np.random.seed(42)
@@ -37,7 +37,7 @@ def dsa_gera_dados():
     df.to_csv('dados/originais/dataset.csv', index = False)
 
 # Função para processar dados
-def dsa_processa_dados():
+def processa_dados():
     
     # Lê os dados do arquivo CSV
     df = pd.read_csv('dados/originais/dataset.csv')
@@ -63,8 +63,8 @@ def dsa_processa_dados():
 
 # Executa as funções se o script for executado diretamente
 if __name__ == "__main__":
-    dsa_gera_dados()
-    dsa_processa_dados()
+    gera_dados()
+    processa_dados()
     print('\nMódulo de Pré-Processamento de Dados Executado Com Sucesso!\n')
 
 
